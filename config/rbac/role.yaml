@@ -1,0 +1,32 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: manager-role
+rules:
+- apiGroups:
+  - gateway.example.com
+  resources:
+  - httproutes
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - gateway.example.com
+  resources:
+  - httproutes/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - gateway.example.com
+  resources:
+  - httproutes/status
+  verbs:
+  - get
+  - patch
+  - update
